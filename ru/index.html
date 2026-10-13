@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e0d">
+  <meta name="description" content="Скачать DPN для Windows, macOS, Linux, Android и iPhone. Официальные установочные файлы и код для пробного доступа.">
+  <title>Скачать DPN — выбери устройство</title>
+  <style>
+    :root{--bg:#0b0e0d;--panel:#121715;--ink:#f2f5f0;--muted:#9aa69e;--line:#344039;--accent:#c4f85e;--accent-ink:#17200a}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bahnschrift","Arial Narrow","Segoe UI",system-ui,sans-serif}
+    a{color:inherit}
+    button{font:inherit}
+    .shell{width:min(1160px,calc(100% - 48px));margin:auto}
+    .site-head{height:82px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+    .brand{text-decoration:none;display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900;letter-spacing:-.08em}
+    .brand-icon{display:grid;place-items:center;width:36px;height:36px;background:var(--accent);color:var(--accent-ink);font-size:20px;font-weight:900;line-height:1}
+    .brand-sub{display:block;margin-top:1px;color:var(--muted);font-size:9px;letter-spacing:.22em;font-weight:800}
+    .head-right{display:flex;align-items:center;gap:22px;color:var(--muted);font:600 11px/1.2 Consolas,monospace;letter-spacing:.1em}
+    .head-right span:last-child{color:var(--accent)}
+    .hero{position:relative;overflow:hidden;padding:84px 0 67px;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.27;background:linear-gradient(90deg,transparent calc(100% - 1px),#314338 calc(100% - 1px)),linear-gradient(0deg,transparent calc(100% - 1px),#314338 calc(100% - 1px));background-size:94px 94px;mask-image:linear-gradient(90deg,transparent 3%,#000 65%)}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 245px;align-items:end;gap:40px}
+    .kicker,.section-kicker{display:flex;align-items:center;gap:12px;font:700 11px/1.3 Consolas,monospace;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+    .kicker:before,.section-kicker:before{content:"";width:23px;height:2px;background:var(--accent)}
+    h1{font-size:clamp(58px,8.4vw,116px);line-height:.88;letter-spacing:-.07em;text-transform:uppercase;margin:23px 0 24px;max-width:850px;font-weight:900}
+    h1 em{font-style:normal;color:var(--accent)}
+    .hero-copy{max-width:555px;color:#b9c3bc;font-size:17px;line-height:1.48;margin:0}
+    .hero-aside{border-left:2px solid var(--accent);padding:7px 0 8px 19px;color:var(--muted);font-size:13px;line-height:1.6}
+    .hero-aside strong{display:block;color:var(--ink);font:700 12px/1.2 Consolas,monospace;letter-spacing:.08em;margin-bottom:12px}
+    .detected{display:none;margin-top:28px;color:var(--ink);font:700 12px/1.4 Consolas,monospace;letter-spacing:.04em}
+    .detected:before{content:"●";color:var(--accent);margin-right:10px}
+    .detected b{color:var(--accent)}
+    .quick{display:none;align-items:center;justify-content:space-between;gap:18px;width:min(405px,100%);margin-top:19px;padding:16px 18px;background:var(--accent);color:var(--accent-ink);font-weight:900;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;transition:transform .18s,background .18s}
+    .quick:hover{transform:translateY(-2px);background:#d5ff7f}
+    .quick span:last-child{font-size:22px;line-height:1}
+    .download-section{padding:58px 0 76px}
+    .section-title-row{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:30px}
+    h2{font-size:clamp(31px,4vw,50px);text-transform:uppercase;letter-spacing:-.055em;line-height:1;margin:13px 0 0}
+    .section-meta{font:600 11px/1.45 Consolas,monospace;color:var(--muted);letter-spacing:.05em;text-align:right;max-width:240px}
+    .downloads{border-top:1px solid var(--line)}
+    .download-row{display:grid;grid-template-columns:56px minmax(210px,1fr) minmax(130px,250px) 44px;align-items:center;gap:19px;min-height:89px;border-bottom:1px solid var(--line);padding:11px 15px 11px 0;text-decoration:none;transition:background .18s,padding-left .18s}
+    .download-row:hover,.download-row.active{background:#1b251f;padding-left:15px}
+    .download-row.active{box-shadow:inset 3px 0 var(--accent)}
+    .row-index{font:700 12px/1 Consolas,monospace;color:var(--muted)}
+    .row-name{font-size:clamp(18px,2.4vw,26px);font-weight:850;line-height:1.1;letter-spacing:-.035em;text-transform:uppercase}
+    .row-name small{display:block;margin-top:6px;color:var(--muted);font:600 11px/1.2 Consolas,monospace;letter-spacing:0;text-transform:none}
+    .row-file{text-align:right;color:#a9b7ac;font:600 11px/1.5 Consolas,monospace;letter-spacing:.02em}
+    .row-file strong{display:block;color:var(--ink);font-size:12px}
+    .row-arrow{width:35px;height:35px;display:grid;place-items:center;border:1px solid #708275;color:var(--accent);font-size:18px;line-height:1;transition:background .18s,color .18s}
+    .download-row:hover .row-arrow{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+    .download-hint{margin:17px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+    .lower{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--line);background:var(--line);margin-bottom:56px}
+    .lower-panel{background:var(--panel);padding:34px 36px 38px;min-height:270px}
+    .lower-panel h2{font-size:29px;margin:12px 0 22px}
+    .step{display:flex;gap:15px;margin:13px 0;color:#bac6bd;font-size:13px;line-height:1.45}
+    .step b{color:var(--accent);font:700 11px/1.6 Consolas,monospace}
+    .code-line{display:flex;align-items:stretch;margin:23px 0 10px;border:1px solid #82936d;min-height:61px}
+    .code-line code{flex:1;display:flex;align-items:center;padding:0 17px;color:var(--ink);font:800 clamp(20px,3vw,28px)/1 Consolas,monospace;letter-spacing:.13em;user-select:all}
+    .copy-btn{border:0;border-left:1px solid #82936d;background:var(--accent);color:var(--accent-ink);padding:0 18px;font-weight:900;font-size:12px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+    .copy-btn:hover{background:#d5ff7f}
+    .code-help,.copy-status{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+    .copy-status{min-height:18px;margin-top:9px;color:var(--accent)}
+    .contacts{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);padding:25px 0 42px}
+    .contacts strong{font-size:17px;text-transform:uppercase;letter-spacing:-.02em}
+    .contacts p{color:var(--muted);font-size:12px;margin:6px 0 0}
+    .contact-list{display:flex;gap:9px}
+    .contact-link{border:1px solid var(--line);color:#b0bcb3;padding:12px 16px;min-width:120px;text-align:center;text-decoration:none;font:800 12px/1.2 Consolas,monospace;letter-spacing:.09em;transition:background .2s,color .2s,border-color .2s}
+    .contact-link:hover,.contact-link:focus-visible{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+    footer{border-top:1px solid var(--line);padding:22px 0 28px;color:#86958a;font:600 10px/1.5 Consolas,monospace;letter-spacing:.07em}
+    .foot-inner{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:760px){.shell{width:min(100% - 32px,1160px)}.site-head{height:66px}.head-right span:first-child{display:none}.hero{padding:55px 0 50px}.hero-inner{display:block}.hero-aside{display:none}h1{font-size:clamp(55px,13vw,82px)}.hero-copy{font-size:15px}.download-section{padding:43px 0 52px}.section-meta{display:none}.download-row{grid-template-columns:24px 1fr 40px;gap:11px;min-height:83px;padding-right:0}.row-file{grid-column:2;text-align:left;margin-top:-12px}.row-arrow{grid-column:3;grid-row:1 / span 2}.row-index{grid-row:1 / span 2}.lower{grid-template-columns:1fr}.lower-panel{min-height:0;padding:27px 24px}.contacts{align-items:flex-start;flex-direction:column}.contact-list{width:100%}.contact-link{flex:1}.foot-inner{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-head shell">
+    <a class="brand" href="#top" aria-label="DPN — наверх"><span class="brand-icon">D</span><span>DPN<span class="brand-sub">DEEPER NETWORK</span></span></a>
+    <div class="head-right"><span>ПРИЛОЖЕНИЕ / ЗАГРУЗКА</span><span>RU / 2026</span></div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-inner">
+        <div>
+          <div class="kicker">Официальная загрузка</div>
+          <h1>СКАЧАЙ<br><em>DPN.</em></h1>
+          <p class="hero-copy">Выбери устройство и скачай приложение. Без лишних переходов.</p>
+          <div class="detected" id="detected" aria-live="polite"></div>
+          <a class="quick" id="quickDownload" href="#downloads" aria-label="Скачать приложение для текущего устройства"><span id="quickText">Скачать для устройства</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-aside"><strong>01 / 03</strong>Выбери платформу.<br>Установи приложение.<br>Введи код.</div>
+      </div>
+    </section>
+
+    <section class="download-section shell" id="downloads" aria-label="Загрузки">
+<div class="section-title-row"><div><div class="section-kicker">01 / загрузка</div><h2>ВЫБЕРИ ПЛАТФОРМУ</h2></div><div class="section-meta">Прямые ссылки на GitHub Releases; iOS — через TestFlight.</div></div>
+      <div class="downloads">
+        <a class="download-row" data-os="ios" href="https://testflight.apple.com/join/2QrTm6P9"><span class="row-index">01</span><span class="row-name">iPhone / iPad<small>iOS / iPadOS</small></span><span class="row-file"><strong>TESTFLIGHT</strong>открыть приглашение</span><span class="row-arrow" aria-hidden="true">↗</span></a>
+<a class="download-row" data-os="android" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.8/DPN-3.0.8.260923-android-x64.apk"><span class="row-index">02</span><span class="row-name">Android<small>телефон / планшет</small></span><span class="row-file"><strong>APK · 3.0.8.260923</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
+<a class="download-row" data-os="windows" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.8/DPN-3.0.8.260922-windows-x86-64.exe"><span class="row-index">03</span><span class="row-name">Windows<small>компьютер · x86-64</small></span><span class="row-file"><strong>EXE · 3.0.8.260922</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
+<a class="download-row" data-os="mac_arm" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.8/DPN-3.0.8.260924-macos-arm-64.dmg"><span class="row-index">04</span><span class="row-name">Mac · Apple Silicon<small>чип серии M</small></span><span class="row-file"><strong>DMG · 3.0.8.260924</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
+<a class="download-row" data-os="mac_intel" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.8/DPN-3.0.8.260924-macos-x86-64.dmg"><span class="row-index">05</span><span class="row-name">Mac · Intel<small>процессор Intel</small></span><span class="row-file"><strong>DMG · 3.0.8.260924</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
+<a class="download-row" data-os="linux" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.8/DPN-3.0.8.260916-linux-x86-64.deb"><span class="row-index">06</span><span class="row-name">Linux<small>Debian / Ubuntu · x86-64</small></span><span class="row-file"><strong>DEB · 3.0.8.260916</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
+      </div>
+      <p class="download-hint">Если система определилась неверно, просто выбери нужную строку. Для Mac проверь тип процессора перед загрузкой.</p>
+    </section>
+
+    <section class="lower shell" aria-label="Установка и код">
+      <div class="lower-panel"><div class="section-kicker">02 / запуск</div><h2>НАЧНИ ЗА 3 ШАГА</h2><div class="step"><b>01</b><span>Скачай файл для своего устройства.</span></div><div class="step"><b>02</b><span>Установи DPN и открой приложение.</span></div><div class="step"><b>03</b><span>Найди в приложении поле для кода и введи код справа.</span></div></div>
+      <div class="lower-panel"><div class="section-kicker">03 / пробный доступ</div><h2>ТВОЙ КОД</h2><div class="code-line"><code id="trialCode">7NNAREAK</code><button class="copy-btn" id="copyCode" type="button">КОПИРОВАТЬ</button></div><p class="code-help">Скопируй код и вставь его в поле активации внутри DPN.</p><p class="copy-status" id="copyStatus" aria-live="polite"></p></div>
+    </section>
+
+    <section class="contacts shell"><div><strong>Остались вопросы?</strong><p>Напиши нам в VK или Telegram — поможем с установкой.</p></div><div class="contact-list"><a class="contact-link" href="https://vk.cc/d2nvkB" target="_blank" rel="noopener noreferrer" aria-label="Написать в VK">VK ↗</a><a class="contact-link" href="https://t.me/dpn_support_bot" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">TELEGRAM ↗</a></div></section>
+  </main>
+  <footer><div class="shell foot-inner"><span>© 2026 DEEPER NETWORK / DPN</span><span>RU / DOWNLOAD PAGE</span></div></footer>
+  <script>
+    const rows=[...document.querySelectorAll('.download-row')];
+    const quick=document.getElementById('quickDownload');
+    const quickText=document.getElementById('quickText');
+    const detected=document.getElementById('detected');
+    const ua=navigator.userAgent||'';
+    function detectOS(){
+      if(/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1))return 'ios';
+      if(/Android/i.test(ua))return 'android';
+      if(/Windows/i.test(ua))return 'windows';
+      if(/Macintosh|Mac OS X/i.test(ua))return 'mac';
+      if(/Linux|X11/i.test(ua))return 'linux';
+      return null;
+    }
+    function selectOS(key){
+      rows.forEach(row=>row.classList.toggle('active',row.dataset.os===key||(key==='mac'&&row.dataset.os.startsWith('mac_'))));
+      const names={ios:'iPhone / iPad',android:'Android',windows:'Windows',mac_arm:'Mac · Apple Silicon',mac_intel:'Mac · Intel',linux:'Linux'};
+      detected.style.display='block';
+      if(key==='mac'){
+        detected.innerHTML='Устройство: <b>Mac</b>. Выбери Apple Silicon или Intel ниже.';
+        quick.style.display='none';
+      }else{
+        const row=rows.find(item=>item.dataset.os===key);
+        if(!row)return;
+        detected.innerHTML='Устройство: <b>'+names[key]+'</b>. Можно выбрать другую платформу ниже.';
+        quick.href=row.href;
+        quickText.textContent='Скачать для '+names[key];
+        quick.style.display='flex';
+      }
+    }
+    rows.forEach(row=>row.addEventListener('click',()=>selectOS(row.dataset.os)));
+    const os=detectOS();if(os)selectOS(os);
+    if(os==='mac'&&navigator.userAgentData&&navigator.userAgentData.getHighEntropyValues){
+      navigator.userAgentData.getHighEntropyValues(['architecture']).then(data=>{if(data.architecture==='arm')selectOS('mac_arm');else if(data.architecture==='x86')selectOS('mac_intel');}).catch(()=>{});
+    }
+    document.getElementById('copyCode').addEventListener('click',async()=>{
+      const code=document.getElementById('trialCode').textContent.trim();
+      const status=document.getElementById('copyStatus');
+      try{await navigator.clipboard.writeText(code);status.textContent='Код скопирован.';}
+      catch(e){const input=document.createElement('textarea');input.value=code;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const copied=document.execCommand('copy');input.remove();status.textContent=copied?'Код скопирован.':'Не удалось скопировать. Выдели код вручную.';}
+    });
+  </script>
+</body>
+</html>
+
