@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0e0d">
-  <meta name="description" content="Скачать DPN для Windows, macOS, Linux, Android и iPhone. Официальные установочные файлы и код для пробного доступа.">
-  <title>Скачать DPN — выбери устройство</title>
+  <meta name="description" content="Скачать DPN для Windows, macOS, Linux, Android и iPhone. Умная маршрутизация, пробный доступ и пошаговая установка, включая App Store и TestFlight.">
+  <title>DPN — VPN-приложение · загрузка и установка</title>
   <style>
     :root{--bg:#0b0e0d;--panel:#121715;--ink:#f2f5f0;--muted:#9aa69e;--line:#344039;--accent:#c4f85e;--accent-ink:#17200a}
     *{box-sizing:border-box}
@@ -53,7 +53,7 @@
     .download-row:hover .row-arrow{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
     .download-hint{margin:17px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
     .lower{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--line);background:var(--line);margin-bottom:56px}
-    .lower-panel{background:var(--panel);padding:34px 36px 38px;min-height:270px}
+    .lower-panel{background:var(--panel);padding:34px 36px 38px;min-height:270px;min-width:0}
     .lower-panel h2{font-size:29px;margin:12px 0 22px}
     .step{display:flex;gap:15px;margin:13px 0;color:#bac6bd;font-size:13px;line-height:1.45}
     .step b{color:var(--accent);font:700 11px/1.6 Consolas,monospace}
@@ -72,7 +72,119 @@
     footer{border-top:1px solid var(--line);padding:22px 0 28px;color:#86958a;font:600 10px/1.5 Consolas,monospace;letter-spacing:.07em}
     .foot-inner{display:flex;justify-content:space-between;gap:20px}
     @media(max-width:760px){.shell{width:min(100% - 32px,1160px)}.site-head{height:66px}.head-right span:first-child{display:none}.hero{padding:55px 0 50px}.hero-inner{display:block}.hero-aside{display:none}h1{font-size:clamp(55px,13vw,82px)}.hero-copy{font-size:15px}.download-section{padding:43px 0 52px}.section-meta{display:none}.download-row{grid-template-columns:24px 1fr 40px;gap:11px;min-height:83px;padding-right:0}.row-file{grid-column:2;text-align:left;margin-top:-12px}.row-arrow{grid-column:3;grid-row:1 / span 2}.row-index{grid-row:1 / span 2}.lower{grid-template-columns:1fr}.lower-panel{min-height:0;padding:27px 24px}.contacts{align-items:flex-start;flex-direction:column}.contact-list{width:100%}.contact-link{flex:1}.foot-inner{flex-direction:column}}
+    @media(max-width:400px){.code-line{flex-direction:column}.code-line code{padding:20px 17px}.copy-btn{border-left:0;border-top:1px solid #82936d;min-height:48px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+    :focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+    [id]{scroll-margin-top:26px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+    .action{display:inline-flex;align-items:center;justify-content:center;padding:15px 20px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:750;line-height:1.4}
+    .action.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+    .action:hover{border-color:var(--accent)}
+    .hero-aside a{color:var(--accent)}
+    .value-section{padding:42px 0 0}
+    .value-section h2{font-size:32px;margin-bottom:23px}
+    .value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .value-card{border:1px solid var(--line);padding:25px;background:var(--panel)}
+    .value-card .num{color:var(--accent);font:700 12px Consolas,monospace}
+    .value-card h3{font-size:21px;line-height:1.2;letter-spacing:-.025em;margin:16px 0 12px}
+    .value-card p,.section-copy{color:#b9c3bc;font-size:14px;line-height:1.65;margin:0}
+    .value-note,.swipe-hint{font-size:12px;line-height:1.6;color:var(--muted);margin:15px 0 0}
+    .swipe-hint{display:none}
+    .trust-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);margin:25px 0 0;padding:22px 0}
+    .trust-stat{padding:0 23px;border-right:1px solid var(--line);font-size:12px;line-height:1.5;color:var(--muted)}
+    .trust-stat:last-child{border:0}.trust-stat strong{display:block;font-size:25px;line-height:1.3;color:var(--ink);margin-bottom:5px}
+    .brand-story{margin-top:15px;color:var(--muted);font-size:13px;line-height:1.65}.brand-story a{color:var(--ink);text-underline-offset:3px}
+    .guide-section{padding:0 0 55px}.guide-section h2{font-size:36px;margin-bottom:18px}.guide-section .section-copy{max-width:780px;margin-bottom:22px}
+    .guide-section details{border:1px solid var(--line);background:var(--panel);margin:12px 0}
+    .guide-section summary{cursor:pointer;padding:21px 23px;font-size:17px;font-weight:750;line-height:1.45}
+    .guide-body{padding:0 23px 25px;color:#b9c3bc;font-size:14px;line-height:1.7}
+    .guide-body p{margin:0 0 14px}.guide-body ol{padding-left:23px;margin:0 0 20px}.guide-body li{padding-left:6px;margin:10px 0}
+    .guide-body a:not(.action){text-underline-offset:3px}.guide-body h3{font-size:16px;color:var(--ink);margin:22px 0 12px}
+    .guide-note{border-left:2px solid var(--accent);padding:10px 15px;background:#1b251f;font-size:13px;line-height:1.6}
+    .guide-help{margin-top:20px;padding:22px;border:1px solid var(--line);font-size:14px;line-height:1.65;color:#b9c3bc}.guide-help strong{color:var(--ink)}
+    .feedback{border-top:1px solid var(--line);padding:32px 0;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:25px}.feedback h2{font-size:26px;margin:0 0 12px}.feedback p{max-width:730px;font-size:14px;line-height:1.65;color:#b9c3bc;margin:0}
+    @media(max-width:760px){.value-section{padding-top:30px}.value-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:15px}.value-card{flex:0 0 85%;scroll-snap-align:start;min-width:0}.swipe-hint{display:block}.trust-strip{padding:0;grid-template-columns:1fr}.trust-stat{border-right:0;border-bottom:1px solid var(--line);padding:16px 20px}.trust-stat strong{font-size:22px}.guide-section h2{font-size:29px}.guide-section summary{padding:18px;font-size:16px}.guide-body{padding:0 18px 22px}.feedback{align-items:flex-start;flex-direction:column}.action{max-width:100%;overflow-wrap:anywhere}.contact-list{flex-wrap:wrap}.contact-link{min-width:100px}.hero-aside{display:none}}
+
+    .screenshot-guide{margin:23px 0;padding-top:20px;border-top:1px solid var(--line)}
+    .screenshot-guide h4{font-size:17px;color:var(--ink);margin:0 0 14px}
+    .shot-layout{display:grid;grid-template-columns:minmax(220px,340px) minmax(0,1fr);gap:25px;align-items:start}
+    .shot-figure{margin:0;min-width:0}.shot-figure img{display:block;width:100%;height:auto;border-radius:12px;background:#f5f5f7}
+    .shot-figure figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin:10px 0 0}
+    .shot-steps{list-style:none!important;padding:0!important;margin:0!important;counter-reset:shotstep}
+    .shot-steps li{counter-increment:shotstep;position:relative;padding:0 0 17px 39px!important;margin:0!important}
+    .shot-steps li:before{content:counter(shotstep);position:absolute;left:0;top:0;width:26px;height:26px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-weight:850;font-size:12px}
+    .shot-steps strong{display:block;color:var(--ink);margin:0 0 5px}.shot-steps p{margin:0!important}
+    .tf-shot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .tf-shot-grid .shot-figure img{max-width:260px;margin:0 auto}.tf-shot-grid h5{font-size:15px;color:var(--ink);margin:0 0 12px}
+    .shot-label{display:inline-block;border:1px solid var(--line);padding:4px 8px;color:var(--accent);font-size:11px;margin-bottom:14px}
+    @media(max-width:760px){.shot-layout,.tf-shot-grid{grid-template-columns:1fr}.shot-layout .shot-figure{max-width:340px;margin:auto}.tf-shot-grid .shot-figure{max-width:300px;margin:auto}.screenshot-guide{margin-top:20px}.shot-steps li{padding-bottom:20px!important}}
+
+    .activation-link{display:inline-block;color:var(--accent);font-size:14px;font-weight:700;line-height:1.55;text-underline-offset:4px;margin-top:4px}
+    .activation-path{font-size:12px;line-height:1.65;color:var(--muted);margin:10px 0 0}
+    .activation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:23px 0 0}
+    .activation-card{border:1px solid var(--line);background:var(--panel);padding:24px;min-width:0;margin:0}
+    .activation-card h3{font-size:20px;line-height:1.3;letter-spacing:-.02em;margin:0 0 12px}
+    .activation-card p{font-size:14px;line-height:1.65;color:#b9c3bc;margin:0 0 18px}
+    .activation-card figcaption{color:var(--muted);font-size:12px;line-height:1.6;margin-top:14px}
+    .annotated-screen{position:relative;max-width:410px;margin:0 auto;line-height:0}
+    .annotated-screen img{display:block;width:100%;height:auto;border-radius:8px}
+    .screen-highlight{position:absolute;border:3px solid #e84b2c;border-radius:9px;pointer-events:none;box-shadow:0 0 0 1px #fff9;line-height:1}
+    .screen-highlight span{position:absolute;left:8px;top:-15px;background:#e84b2c;color:#fff;width:27px;height:27px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:900;font-family:system-ui,sans-serif}
+    .mark-settings{left:76%;top:86.3%;width:17%;height:7%}
+    .mark-user-center{left:5%;top:12.6%;width:90%;height:7.3%}
+    .mark-activate{left:5%;top:58.8%;width:90%;height:5.5%}
+    .activation-finish{margin-top:20px;padding:20px 23px;border-left:2px solid var(--accent);background:var(--panel);font-size:14px;line-height:1.7;color:#b9c3bc}
+    .activation-finish strong{color:var(--ink)}.activation-finish a{color:var(--accent);text-underline-offset:3px}
+    @media(max-width:760px){.activation-grid{grid-template-columns:1fr;gap:16px}.activation-card{padding:18px}.activation-card h3{font-size:19px}.screen-highlight{border-width:2px}.screen-highlight span{width:24px;height:24px;top:-13px;font-size:12px}.activation-link{font-size:13px}}
+
+    .guide-section .store-route{margin:19px 0;background:transparent}.store-route>summary{font-size:15px;color:var(--accent)}
+    .region-step-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:21px}
+    .region-step{border:1px solid var(--line);background:var(--bg);padding:20px;min-width:0}
+    .region-step-title{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}.region-step-title>span{display:grid;place-items:center;flex:0 0 28px;height:28px;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:850}
+    .region-step h4{font-size:17px;color:var(--ink);line-height:1.45;margin:1px 0 0}.region-step p{font-size:13px;line-height:1.65;margin:0 0 18px}
+    .region-image-link{display:block;width:100%;max-width:270px;margin:0 auto}.region-image-link img{display:block;max-width:100%;height:auto;max-height:490px;margin:auto;border-radius:8px}
+    .store-download-step{padding:24px 22px;border-left:2px solid var(--accent);margin-top:24px;background:#1b251f}.store-download-step h3{margin:0 0 22px}.store-download-step .shot-steps{margin-bottom:15px!important}.region-source{margin-top:23px!important}
+    @media(max-width:760px){.region-step-grid{grid-template-columns:1fr}.region-step{padding:18px}.store-download-step{padding:20px 17px}.store-route>.guide-body{padding-left:13px;padding-right:13px}.store-route>summary{padding:15px 13px;font-size:14px}}
+
+    .appstore-final-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:22px 0}
+    .appstore-final-card{margin:0;min-width:0;background:var(--panel);border:1px solid var(--line);padding:19px}
+    .appstore-final-card h4{font-size:17px;line-height:1.45;color:var(--ink);margin:0 0 12px}.appstore-final-card p{font-size:13px;line-height:1.65;margin:0 0 18px}
+    .appstore-final-card figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin-top:13px}
+    .store-shot-crop{position:relative;width:100%;overflow:hidden;background:#fff;border-radius:8px}.store-shot-crop img{display:block;width:100%;height:auto}
+    .store-search-crop{aspect-ratio:2 / 1}.store-detail-crop{aspect-ratio:1.15 / 1}
+    .store-search-mark{left:4.5%;top:53.8%;width:91%;height:17.1%}.store-open-mark{left:35.4%;top:54.5%;width:21%;height:10.5%}
+    .appstore-after-install{margin:19px 0!important;font-size:14px;line-height:1.65}.appstore-after-install strong{color:var(--ink)}
+    @media(max-width:760px){.appstore-final-grid{grid-template-columns:1fr;gap:16px}.appstore-final-card{padding:15px}.appstore-final-card h4{font-size:16px}}
+
+    .guide-toolbar{display:flex;justify-content:flex-end;margin:0 0 20px;position:relative}
+    .guide-toolbar:last-child{margin:22px 0 0}
+    .guide-close{border:1px solid var(--line);background:var(--bg);color:var(--accent);padding:11px 15px;font-size:13px;line-height:1.4;font-weight:700;cursor:pointer;text-align:center}
+    .guide-close:hover{border-color:var(--accent);background:#1b251f}
+    #activation-guide h2{font-size:29px;margin-bottom:18px}
+    #activation-panel>summary{color:var(--accent);font-size:15px}
+    @media(max-width:760px){.guide-close{width:100%;font-size:12px}.guide-toolbar{justify-content:stretch}.guide-toolbar:last-child{margin-top:18px}#activation-guide h2{font-size:26px}}
+
+    .store-zoom-trigger{display:block;border:0;padding:0;cursor:zoom-in;text-align:left}
+    .image-zoom{width:min(920px,94vw);max-width:94vw;max-height:92vh;max-height:92dvh;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);overscroll-behavior:contain}
+    .image-zoom::backdrop{background:rgba(0,0,0,.86)}
+    .image-zoom img{display:block;width:100%;height:auto;cursor:zoom-out}
+    .zoom-header{display:flex;justify-content:flex-end;position:sticky;top:0;z-index:2;padding:8px;background:rgba(11,14,13,.92)}
+    .zoom-close{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:23px;cursor:pointer;border-radius:50%}
+    .zoom-close:hover{color:var(--accent);border-color:var(--accent)}
+
+    .tf-real-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .tf-real-step{min-width:0;padding:20px;border:1px solid var(--line);background:var(--bg)}
+    .tf-real-step h5{font-size:17px;line-height:1.45;color:var(--ink);margin:0 0 12px}.tf-real-step p{font-size:13px;line-height:1.65;margin:0 0 18px}
+    .tf-real-crop{display:block;position:relative;width:100%;padding:0;border:0;overflow:hidden;border-radius:8px;background:#fff;cursor:zoom-in;text-align:left}
+    .tf-real-crop img{display:block;width:100%;height:auto}
+    .tf-invite-top{aspect-ratio:1.18 / 1}.tf-store-top{aspect-ratio:1.45 / 1}.tf-accept-top{aspect-ratio:.74 / 1}
+    .tf-invite-bottom{aspect-ratio:1.66 / 1}.tf-invite-bottom img{margin-top:-143%}
+    .tf-mark-invite-top{left:13%;top:76%;width:48%;height:12%}
+    .tf-mark-store-get{left:35%;top:79%;width:26%;height:13%}
+    .tf-mark-invite-bottom{left:13%;top:50%;width:48%;height:14%}
+    .tf-mark-accept{left:11%;top:62%;width:78%;height:10%}
+    @media(max-width:760px){.tf-real-grid{grid-template-columns:1fr;gap:16px}.tf-real-step{padding:16px}.tf-real-step h5{font-size:16px}}
   </style>
 </head>
 <body>
@@ -84,20 +196,35 @@
     <section class="hero">
       <div class="shell hero-inner">
         <div>
-          <div class="kicker">Официальная загрузка</div>
+          <div class="kicker">VPN на базе децентрализованной сети</div>
           <h1>СКАЧАЙ<br><em>DPN.</em></h1>
-          <p class="hero-copy">Выбери устройство и скачай приложение. Без лишних переходов.</p>
+          <p class="hero-copy">Домашние IP, умные маршруты для разных приложений и фильтрация рекламы — в DPN от Deeper Network. Один аккаунт — до 5 устройств.</p>
+          <div class="hero-actions"><a class="action primary" href="#downloads">Скачать DPN ↓</a><a class="action" href="#iphone-guide">Установка на iPhone ↗</a></div>
           <div class="detected" id="detected" aria-live="polite"></div>
           <a class="quick" id="quickDownload" href="#downloads" aria-label="Скачать приложение для текущего устройства"><span id="quickText">Скачать для устройства</span><span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-aside"><strong>01 / 03</strong>Выбери платформу.<br>Установи приложение.<br>Введи код.</div>
+        <div class="hero-aside"><strong>7 ДНЕЙ БЕСПЛАТНО</strong>Выбери устройство.<br>Установи и зарегистрируйся.<br>Активируй пробный код.<br><a href="#setup">Как начать →</a></div>
       </div>
     </section>
 
+
+    <section class="value-section shell" aria-labelledby="value-title">
+      <div class="section-kicker">Зачем DPN</div><h2 id="value-title">БОЛЬШЕ КОНТРОЛЯ. МЕНЬШЕ ПЕРЕКЛЮЧЕНИЙ.</h2>
+      <div class="value-grid" tabindex="0" role="region" aria-label="Возможности DPN; на телефоне можно листать карточки">
+        <article class="value-card"><span class="num">01 / УМНАЯ МАРШРУТИЗАЦИЯ</span><h3>Разным приложениям — разные страны</h3><p>Назначайте поддерживаемым приложениям отдельные маршруты. Местные сервисы могут оставаться на прямом подключении.</p></article>
+        <article class="value-card"><span class="num">02 / ПОДКЛЮЧЕНИЕ</span><h3>Домашние IP по всему миру</h3><p>Качественные IP-узлы помогают защитить ваши аккаунты и сократить число проверок.</p></article>
+        <article class="value-card"><span class="num">03 / КАЖДЫЙ ДЕНЬ</span><h3>Меньше рекламы и трекеров</h3><p>Экономьте на подписках без рекламы: включайте фильтрацию в поддерживаемых приложениях и на сайтах.</p></article>
+      </div>
+      <p class="swipe-hint">Листайте карточки в сторону →</p>
+      <p class="value-note">Доступность маршрутов зависит от сети и выбранного узла. Возможности фильтрации зависят от платформы и настройки; HTTPS-фильтрация на Android работает только в браузерах. Результаты проверок зависят и от самого сервиса; фильтрация не заменяет все возможности платных подписок.</p>
+      <div class="trust-strip" aria-label="О сети Deeper Network"><div class="trust-stat"><strong>С 2018 года</strong>Децентрализованные сетевые технологии мирового уровня.</div><div class="trust-stat"><strong>200 000+</strong>узлов в сети Deeper Network</div><div class="trust-stat"><strong>170+ стран</strong>география глобальной сети</div></div>
+      <p class="brand-story">Начинали с роутеров Deeper Connect. Теперь наши технологии доступны и в DPN App. <a href="https://www.deeper.network/" target="_blank" rel="noopener noreferrer">О компании и устройствах ↗</a></p>
+    </section>
+
     <section class="download-section shell" id="downloads" aria-label="Загрузки">
-<div class="section-title-row"><div><div class="section-kicker">01 / загрузка</div><h2>ВЫБЕРИ ПЛАТФОРМУ</h2></div><div class="section-meta">Прямые ссылки на GitHub Releases; iOS — через TestFlight.</div></div>
+<div class="section-title-row"><div><div class="section-kicker">01 / загрузка</div><h2>ВЫБЕРИ ПЛАТФОРМУ</h2></div><div class="section-meta">Для iPhone — две инструкции. Для остальных устройств — установочный файл.</div></div>
       <div class="downloads">
-        <a class="download-row" data-os="ios" href="https://testflight.apple.com/join/2QrTm6P9"><span class="row-index">01</span><span class="row-name">iPhone / iPad<small>iOS / iPadOS</small></span><span class="row-file"><strong>TESTFLIGHT</strong>открыть приглашение</span><span class="row-arrow" aria-hidden="true">↗</span></a>
+        <a class="download-row" data-os="ios" href="#iphone-guide"><span class="row-index">01</span><span class="row-name">iPhone / iPad<small>iOS / iPadOS</small></span><span class="row-file"><strong>КАК УСТАНОВИТЬ</strong>App Store / TestFlight</span><span class="row-arrow" aria-hidden="true">↗</span></a>
 <a class="download-row" data-os="android" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.9/DPN-3.0.9.261026%2B768eb4f-android-x64.apk"><span class="row-index">02</span><span class="row-name">Android<small>телефон / планшет</small></span><span class="row-file"><strong>APK · 3.0.9.261026+768eb4f</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
 <a class="download-row" data-os="windows" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.9/DPN-3.0.9.261028%2Bb4d48c6-windows-x86-64.exe"><span class="row-index">03</span><span class="row-name">Windows<small>компьютер · x86-64</small></span><span class="row-file"><strong>EXE · 3.0.9.261028+b4d48c6</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
 <a class="download-row" data-os="mac_arm" href="https://github.com/DeeperNetwork/dpn-app/releases/download/3.0.9/DPN-3.0.9.261026%2B676d07d-macos-arm-64.dmg"><span class="row-index">04</span><span class="row-name">Mac · Apple Silicon<small>чип серии M</small></span><span class="row-file"><strong>DMG · 3.0.9.261026+676d07d</strong>скачать файл</span><span class="row-arrow" aria-hidden="true">↓</span></a>
@@ -107,13 +234,91 @@
       <p class="download-hint">Если система определилась неверно, просто выбери нужную строку. Для Mac проверь тип процессора перед загрузкой.</p>
     </section>
 
-    <section class="lower shell" aria-label="Установка и код">
-      <div class="lower-panel"><div class="section-kicker">02 / запуск</div><h2>НАЧНИ ЗА 3 ШАГА</h2><div class="step"><b>01</b><span>Скачай файл для своего устройства.</span></div><div class="step"><b>02</b><span>Установи DPN и открой приложение.</span></div><div class="step"><b>03</b><span>Найди в приложении поле для кода и введи код справа.</span></div></div>
-      <div class="lower-panel"><div class="section-kicker">03 / пробный доступ</div><h2>ТВОЙ КОД</h2><div class="code-line"><code id="trialCode">7NNAREAK</code><button class="copy-btn" id="copyCode" type="button">КОПИРОВАТЬ</button></div><p class="code-help">Скопируй код и вставь его в поле активации внутри DPN.</p><p class="copy-status" id="copyStatus" aria-live="polite"></p></div>
+    <section class="lower shell" id="setup" aria-label="Установка, регистрация и код">
+      <div class="lower-panel"><div class="section-kicker">02 / запуск</div><h2>НАЧНИ ЗА 4 ШАГА</h2><div class="step"><b>01</b><span>Скачай файл для своего устройства.</span></div><div class="step"><b>02</b><span>Установи DPN и открой приложение.</span></div><div class="step"><b>03</b><span>Зарегистрируйся или войди в свой аккаунт DPN.</span></div><div class="step"><b>04</b><span>Скопируй пробный код из блока «Твой код» и <a href="#activation-guide">активируй его по инструкции</a>.</span></div></div>
+      <div class="lower-panel"><div class="section-kicker">03 / пробный доступ</div><h2>ТВОЙ КОД</h2><div class="code-line"><code id="trialCode">7NNAREAK</code><button class="copy-btn" id="copyCode" type="button">КОПИРОВАТЬ</button></div><p class="code-help">7 дней бесплатного доступа. После регистрации активируй код в приложении DPN.</p><p class="copy-status" id="copyStatus" aria-live="polite"></p><a class="activation-link" href="#activation-guide" aria-controls="activation-panel" aria-expanded="false">Где я могу использовать код активации? ↓</a><p class="activation-path">Настройки → Центр пользователя → Применить код активации</p></div>
     </section>
 
-    <section class="contacts shell"><div><strong>Остались вопросы?</strong><p>Напиши нам в VK или Telegram — поможем с установкой.</p></div><div class="contact-list"><a class="contact-link" href="https://vk.cc/d2nvkB" target="_blank" rel="noopener noreferrer" aria-label="Написать в VK">VK ↗</a><a class="contact-link" href="https://t.me/dpn_support_bot" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">TELEGRAM ↗</a></div></section>
+
+
+    <section class="guide-section shell" id="activation-guide" aria-labelledby="activation-title">
+      <div class="section-kicker">Пробный доступ — активация кода</div><h2 id="activation-title">КУДА ВВЕСТИ КОД?</h2>
+      <details id="activation-panel"><summary>Показать инструкцию со скриншотами</summary><div class="guide-body"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="activation-panel">✕ Закрыть инструкцию ↑</button></div>
+      <p class="section-copy">Сначала войдите в свой аккаунт DPN. Затем откройте нужные разделы по скриншотам ниже. Красные рамки и цифры показывают, куда нажать.</p>
+      <div class="activation-grid">
+        <figure class="activation-card"><h3>1 / Настройки → Центр пользователя</h3><p>В нижнем меню нажмите значок шестерёнки справа — <strong>«Настройки»</strong> (метка 1). Затем выберите <strong>«Центр пользователя»</strong> в верхней части экрана (метка 2).</p>
+          <div class="annotated-screen"><img src="guide-images/dpn-settings-ru-original.jpg" alt="Русский интерфейс DPN: шестерёнка Настройки внизу справа отмечена цифрой 1, Центр пользователя сверху отмечен цифрой 2" width="1080" height="2280" loading="lazy"><div class="screen-highlight mark-settings" aria-hidden="true"><span>1</span></div><div class="screen-highlight mark-user-center" aria-hidden="true"><span>2</span></div></div>
+          <figcaption>Скриншот DPN на Android, предоставленный командой. На других платформах расположение элементов может отличаться.</figcaption>
+        </figure>
+        <figure class="activation-card"><h3>2 / Применить код активации</h3><p>В «Центре пользователя» нажмите <strong>«Применить код активации»</strong> — пункт с иконкой билета, выделенный рамкой и меткой 3.</p>
+          <div class="annotated-screen"><img src="guide-images/dpn-activation-menu-ru-original.jpg" alt="Центр пользователя DPN: строка Применить код активации выделена красной рамкой и цифрой 3" width="1080" height="2280" loading="lazy"><div class="screen-highlight mark-activate" aria-hidden="true"><span>3</span></div></div>
+          <figcaption>Выбирайте выделенный пункт «Применить код активации».</figcaption>
+        </figure>
+      </div>
+      <div class="activation-finish"><strong>Вставьте скопированный код и завершите активацию в приложении.</strong><br>Ещё не скопировали код? <a href="#trialCode">Вернуться к коду ↑</a><br>Если код не принимается, напишите текст ошибки в <a href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer">группу помощи DPN ↗</a>.</div>
+
+      <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="activation-panel">✕ Закрыть инструкцию ↑</button></div></div></details>
+    </section>
+
+    <section class="guide-section shell" id="iphone-guide" aria-labelledby="iphone-title">
+      <div class="section-kicker">iPhone / iPad — инструкция</div><h2 id="iphone-title">ВЫБЕРИ СПОСОБ УСТАНОВКИ</h2>
+      <p class="section-copy">Если DPN недоступен в вашем регионе App Store, используйте подходящий собственный Apple Account или приглашение TestFlight. Ниже — обе инструкции.</p>
+
+      <details id="appstore-guide"><summary>01 / App Store — официальная версия DPN</summary><div class="guide-body"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="appstore-guide">Свернуть инструкцию App Store ↑</button></div>
+        <p>На iPhone требуется iOS 17.4 или новее, на iPad — iPadOS 17.4 или новее. Если приложение уже доступно для вашего аккаунта, переходите сразу к загрузке.</p>
+        <a class="action primary" href="https://apps.apple.com/us/app/dpn-beyond-vpn/id6748636811" target="_blank" rel="noopener noreferrer">Открыть DPN в App Store ↗</a>
+        <h3>Приложение недоступно в вашем регионе?</h3>
+        <p>Выберите подходящий способ ниже: изменить регион текущего аккаунта или войти в свой другой аккаунт магазина.</p>
+
+        <details class="store-route" id="region-route"><summary>A / Изменить регион текущего аккаунта</summary><div class="guide-body" id="region-screenshots"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="region-route">Свернуть смену региона ↑</button></div>
+          <p class="guide-note">Перед изменением израсходуйте баланс и завершите подписки, блокирующие смену региона. Проверьте незавершенные покупки, семейный доступ и требования к платежным данным. <a href="https://support.apple.com/ru-ru/118283" target="_blank" rel="noopener noreferrer">Подготовка по инструкции Apple ↗</a></p>
+          <div class="region-step-grid"><article class="region-step"><div class="region-step-title"><span>1</span><h4>Откройте настройки магазина</h4></div><p>«Настройки» → ваше имя → «Контент и покупки» → «Просмотреть». В другой версии iOS раздел может называться «Медиаматериалы и покупки».</p><a class="region-image-link" href="guide-images/beeline-region-5.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Откройте настройки магазина"><img src="guide-images/beeline-region-5.png" alt="Настройки Apple: синим выделена строка Контент и покупки" loading="lazy"></a></article>
+<article class="region-step"><div class="region-step-title"><span>2</span><h4>Выберите «Страна/регион»</h4></div><p>В настройках учетной записи нажмите выделенную строку.</p><a class="region-image-link" href="guide-images/beeline-region-2.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Выберите «Страна/регион»"><img src="guide-images/beeline-region-2.png" alt="Настройки учетной записи: синим выделена строка Страна/регион" loading="lazy"></a></article>
+<article class="region-step"><div class="region-step-title"><span>3</span><h4>Укажите новый регион</h4></div><p>Выберите страну, в магазине которой доступен DPN, с учетом требований Apple.</p><a class="region-image-link" href="guide-images/beeline-region-3.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Укажите новый регион"><img src="guide-images/beeline-region-3.png" alt="Список стран и регионов в настройках App Store" loading="lazy"></a></article>
+<article class="region-step"><div class="region-step-title"><span>4</span><h4>Завершите изменение</h4></div><p>Прочитайте условия. Если согласны, подтвердите их. При запросе Apple укажите действительные платежные данные и адрес.</p><a class="region-image-link" href="guide-images/beeline-region-4.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Завершите изменение"><img src="guide-images/beeline-region-4.png" alt="Экран Положения и условия: выделена кнопка Принять" loading="lazy"></a></article></div>
+        <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="region-route">Свернуть смену региона ↑</button></div></div></details>
+
+        <details class="store-route" id="switch-route"><summary>B / Войти в свой аккаунт другого региона</summary><div class="guide-body"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="switch-route">Свернуть смену аккаунта ↑</button></div>
+          <p>Этот путь — для тех, у кого уже есть собственный Apple Account нужного региона. Меняется аккаунт магазина, а не вход в iCloud.</p>
+          <div class="region-step-grid switch-grid"><article class="region-step"><div class="region-step-title"><span>1</span><h4>Откройте «Контент и покупки»</h4></div><p>«Настройки» → ваше имя → раздел магазина.</p><a class="region-image-link" href="guide-images/beeline-region-5.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Откройте «Контент и покупки»"><img src="guide-images/beeline-region-5.png" alt="В настройках Apple выделен раздел Контент и покупки" loading="lazy"></a></article>
+<article class="region-step"><div class="region-step-title"><span>2</span><h4>Выйдите только из магазина</h4></div><p>Нажмите «Выйти» в меню покупок. Из iCloud выходить не нужно.</p><a class="region-image-link" href="guide-images/beeline-region-6.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Выйдите только из магазина"><img src="guide-images/beeline-region-6.png" alt="Меню раздела покупок: выделена кнопка Выйти" loading="lazy"></a></article>
+<article class="region-step"><div class="region-step-title"><span>3</span><h4>Войдите в свой другой аккаунт</h4></div><p>Используйте собственный Apple Account подходящего региона и подтвердите вход.</p><a class="region-image-link" href="guide-images/beeline-region-7.png" target="_blank" rel="noopener noreferrer" aria-label="Увеличить скриншот: Войдите в свой другой аккаунт"><img src="guide-images/beeline-region-7.png" alt="Форма входа в учетную запись Apple; пример из исходной статьи" loading="lazy"></a></article></div>
+          <p class="value-note">Выход из аккаунта покупок может повлиять на загруженный медиаконтент Apple. Сохраните доступ к аккаунту, с которого установите DPN: он может понадобиться для обновлений.</p>
+        <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="switch-route">Свернуть смену аккаунта ↑</button></div></div></details>
+
+
+        <div class="store-download-step" id="appstore-dpn-step"><span class="shot-label">После смены региона или аккаунта</span><h3>Найдите и скачайте DPN</h3>
+          <div class="appstore-final-grid">
+            <figure class="appstore-final-card"><h4>1 / Введите DPN и выберите Beyond VPN</h4><p>Откройте поиск App Store, введите <b>DPN</b> и выберите подсказку <b>«dpn – beyond vpn»</b>, выделенную рамкой.</p><button class="store-shot-crop store-search-crop store-zoom-trigger" type="button" data-zoom-src="guide-images/dpn-appstore-search-original.png" data-zoom-alt="Поиск App Store: выберите dpn – beyond vpn" aria-label="Увеличить скриншот" aria-haspopup="dialog"><img src="guide-images/dpn-appstore-search-original.png" alt="Реальный скриншот поиска App Store: Dpn в строке поиска и первая подсказка dpn – beyond vpn" width="1290" height="2796" loading="lazy"><span class="screen-highlight store-search-mark" aria-hidden="true"><span>1</span></span></button></figure>
+            <figure class="appstore-final-card"><h4>2 / Проверьте приложение и установите</h4><p>Откройте <b>DPN – Beyond VPN</b> от <b>Deeper Network Inc</b>. Нажмите кнопку загрузки или значок облака. Если видите <b>«Открыть»</b>, приложение уже установлено.</p><button class="store-shot-crop store-detail-crop store-zoom-trigger" type="button" data-zoom-src="guide-images/dpn-appstore-detail-ru-translated.png" data-zoom-alt="DPN – Beyond VPN: приложение и кнопка Открыть" aria-label="Увеличить скриншот" aria-haspopup="dialog"><img src="guide-images/dpn-appstore-detail-ru-translated.png" alt="Русский перевод предоставленного японского скриншота App Store: DPN – Beyond VPN, разработчик Deeper Network Inc и кнопка Открыть" width="852" height="1846" loading="lazy"><span class="screen-highlight store-open-mark" aria-hidden="true"><span>2</span></span></button></figure>
+          </div>
+          <p class="appstore-after-install"><strong>После установки:</strong> откройте DPN, зарегистрируйтесь или войдите, затем <a href="#activation-guide">активируйте пробный код по инструкции</a>.</p>
+          <a class="action primary" href="https://apps.apple.com/us/app/dpn-beyond-vpn/id6748636811" target="_blank" rel="noopener noreferrer">Перейти к DPN ↗</a>
+        </div>
+        <p class="value-note region-source">Скриншоты настроек: <a href="https://moskva.beeline.ru/shop/review/kak-pomenyat-region-na-iphone/" target="_blank" rel="noopener noreferrer">билайн — инструкция по смене региона ↗</a>. Пояснения сокращены для установки DPN. Названия пунктов и вид экранов зависят от версии iOS.</p>
+      <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="appstore-guide">Свернуть инструкцию App Store ↑</button></div></div></details>
+
+      <details id="testflight-guide"><summary>02 / TestFlight — установка тестовой версии</summary><div class="guide-body"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="testflight-guide">Свернуть инструкцию TestFlight ↑</button></div>
+        <p>DPN Lite совместим с аккаунтом и пробным кодом DPN; основные функции соответствуют официальной версии. Если TestFlight ещё не установлен, выполните все четыре шага. Если уже установлен — переходите к шагу 3.</p>
+        <div class="hero-actions"><a class="action primary" href="https://testflight.apple.com/join/2QrTm6P9">Открыть DPN Lite в TestFlight ↗</a><a class="action" href="https://apps.apple.com/app/testflight/id899247664">Скачать TestFlight в App Store ↗</a></div>
+        <div class="screenshot-guide" id="testflight-screenshots"><h4>Установка TestFlight и DPN Lite — по шагам</h4><div class="tf-real-grid"><article class="tf-real-step"><h5>1 / Откройте приглашение</h5><p>На странице приглашения сначала нажмите верхнюю кнопку <b>«Открыть в App Store»</b> — она ведёт к TestFlight.</p><button class="tf-real-crop tf-invite-top" type="button" data-zoom-src="guide-images/tf-dpn-invitation-ru.png" data-zoom-alt="Русский перевод страницы приглашения DPN Lite: сначала установите TestFlight через верхнюю кнопку" aria-label="Увеличить скриншот шага 1" aria-haspopup="dialog"><img src="guide-images/tf-dpn-invitation-ru.png" alt="Русский перевод страницы приглашения DPN Lite: сначала установите TestFlight через верхнюю кнопку" width="852" height="1846" loading="lazy"><span class="screen-highlight tf-mark-invite-top" aria-hidden="true"><span>1</span></span></button></article><article class="tf-real-step"><h5>2 / Установите TestFlight</h5><p>В App Store проверьте название <b>TestFlight</b> и разработчика <b>Apple</b>, затем нажмите <b>«Загрузить»</b>. Дождитесь установки.</p><button class="tf-real-crop tf-store-top" type="button" data-zoom-src="guide-images/tf-store-install-ru.png" data-zoom-alt="Русский перевод страницы TestFlight в App Store: кнопка Загрузить" aria-label="Увеличить скриншот шага 2" aria-haspopup="dialog"><img src="guide-images/tf-store-install-ru.png" alt="Русский перевод страницы TestFlight в App Store: кнопка Загрузить" width="852" height="1846" loading="lazy"><span class="screen-highlight tf-mark-store-get" aria-hidden="true"><span>2</span></span></button></article><article class="tf-real-step"><h5>3 / Вернитесь к приглашению DPN</h5><p>Вернитесь в браузер на страницу из шага 1. В блоке <b>DPN Lite</b> нажмите нижнюю кнопку <b>«Открыть в TestFlight»</b>.</p><button class="tf-real-crop tf-invite-bottom" type="button" data-zoom-src="guide-images/tf-dpn-invitation-ru.png" data-zoom-alt="Русский перевод нижней части приглашения: кнопка Открыть в TestFlight для DPN Lite" aria-label="Увеличить скриншот шага 3" aria-haspopup="dialog"><img src="guide-images/tf-dpn-invitation-ru.png" alt="Русский перевод нижней части приглашения: кнопка Открыть в TestFlight для DPN Lite" width="852" height="1846" loading="lazy"><span class="screen-highlight tf-mark-invite-bottom" aria-hidden="true"><span>3</span></span></button></article><article class="tf-real-step"><h5>4 / Примите приглашение и установите DPN Lite</h5><p>В TestFlight нажмите <b>«Принять»</b>, затем <b>«Установить»</b>, когда эта кнопка появится. После установки откройте DPN Lite.</p><button class="tf-real-crop tf-accept-top" type="button" data-zoom-src="guide-images/tf-dpn-accept-ru.png" data-zoom-alt="Русский перевод TestFlight: приложение DPN Lite и кнопка Принять" aria-label="Увеличить скриншот шага 4" aria-haspopup="dialog"><img src="guide-images/tf-dpn-accept-ru.png" alt="Русский перевод TestFlight: приложение DPN Lite и кнопка Принять" width="852" height="1846" loading="lazy"><span class="screen-highlight tf-mark-accept" aria-hidden="true"><span>4</span></span></button></article></div></div>
+        <div class="activation-finish"><strong>DPN Lite установлен?</strong> Войдите или зарегистрируйтесь, затем <a href="#activation-guide">активируйте пробный код по инструкции</a>.</div>
+        <p class="value-note">На снимке DPN Lite указано 75 дней до истечения тестовой сборки — это не срок пробного доступа аккаунта. Актуальный остаток виден в TestFlight. Устанавливайте новые сборки по мере выхода.</p>
+        <p class="value-note">Если приглашение закрыто, мест нет или устройство не поддерживается, воспользуйтесь инструкцией App Store выше или напишите в <a href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer">группу помощи DPN</a>.</p>
+        <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="testflight-guide">Свернуть инструкцию TestFlight ↑</button></div></div></details>
+
+      <div class="guide-help"><strong>Не удалось установить, получить SMS, активировать код или подключиться?</strong><br>Напишите в <a href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer">группу помощи DPN в Telegram ↗</a>. Укажите модель устройства, версию системы и текст ошибки. Пароли и SMS-коды присылать не нужно.</div>
+    </section>
+    <section class="feedback shell" aria-labelledby="feedback-title"><div><h2 id="feedback-title">ПОМОГИТЕ УЛУЧШИТЬ DPN</h2><p>Начните с 7 дней бесплатно. Вступите в группу и поделитесь содержательной обратной связью — подарим ещё 30 дней. За ценные предложения и активное участие в улучшении приложения — до года бесплатного доступа. Отзывы о проблемах тоже важны.</p></div><a class="action primary" href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer">Присоединиться ↗</a></section>
+
+    <section class="contacts shell"><div><strong>Остались вопросы?</strong><p>Напиши нам в VK или Telegram — поможем с установкой.</p></div><div class="contact-list"><a class="contact-link" href="https://vk.cc/d2nvkB" target="_blank" rel="noopener noreferrer" aria-label="Написать в VK">VK ↗</a><a class="contact-link" href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">TELEGRAM ↗</a></div></section>
   </main>
+
+  <dialog class="image-zoom" id="image-zoom" aria-label="Просмотр скриншота">
+    <div class="zoom-header"><button type="button" class="zoom-close" id="zoom-close" aria-label="Закрыть изображение">✕</button></div>
+    <img id="zoom-image" alt="Увеличенный скриншот">
+  </dialog>
+
   <footer><div class="shell foot-inner"><span>© 2026 DEEPER NETWORK / DPN</span><span>RU / DOWNLOAD PAGE</span></div></footer>
   <script>
     const rows=[...document.querySelectorAll('.download-row')];
@@ -141,7 +346,7 @@
         if(!row)return;
         detected.innerHTML='Устройство: <b>'+names[key]+'</b>. Можно выбрать другую платформу ниже.';
         quick.href=row.href;
-        quickText.textContent='Скачать для '+names[key];
+        quickText.textContent=key==='ios'?'Как установить на iPhone / iPad':'Скачать для '+names[key];
         quick.style.display='flex';
       }
     }
@@ -155,6 +360,46 @@
       const status=document.getElementById('copyStatus');
       try{await navigator.clipboard.writeText(code);status.textContent='Код скопирован.';}
       catch(e){const input=document.createElement('textarea');input.value=code;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const copied=document.execCommand('copy');input.remove();status.textContent=copied?'Код скопирован.':'Не удалось скопировать. Выдели код вручную.';}
+    });
+
+    const activationPanel=document.getElementById('activation-panel');
+    const activationLinks=[...document.querySelectorAll('a[href="#activation-guide"]')];
+    function openActivationGuide(){
+      activationPanel.open=true;
+      activationLinks.forEach(link=>link.setAttribute('aria-expanded','true'));
+    }
+    activationLinks.forEach(link=>link.addEventListener('click',openActivationGuide));
+    activationPanel.addEventListener('toggle',()=>{
+      activationLinks.forEach(link=>link.setAttribute('aria-expanded',String(activationPanel.open)));
+    });
+    document.querySelectorAll('[data-close-guide]').forEach(button=>button.addEventListener('click',()=>{
+      const panel=document.getElementById(button.getAttribute('data-close-guide'));
+      panel.querySelectorAll('details').forEach(child=>{child.open=false;});
+      panel.open=false;
+      const returnTarget=panel.id==='activation-panel'?document.querySelector('.activation-link'):panel.querySelector('summary');
+      if(returnTarget){returnTarget.focus({preventScroll:true});returnTarget.scrollIntoView({block:'nearest'});}
+    }));
+    if(window.location.hash==='#activation-guide')openActivationGuide();
+    window.addEventListener('hashchange',()=>{if(window.location.hash==='#activation-guide')openActivationGuide();});
+
+    const zoomDialog=document.getElementById('image-zoom');
+    const zoomImage=document.getElementById('zoom-image');
+    let zoomTrigger=null;
+    function closeImageZoom(){if(zoomDialog.open)zoomDialog.close();}
+    document.querySelectorAll('[data-zoom-src]').forEach(trigger=>trigger.addEventListener('click',()=>{
+      zoomTrigger=trigger;
+      zoomImage.src=trigger.getAttribute('data-zoom-src');
+      zoomImage.alt=trigger.getAttribute('data-zoom-alt');
+      if(!zoomDialog.open)zoomDialog.showModal();
+      zoomDialog.scrollTop=0;
+    }));
+    zoomImage.addEventListener('click',closeImageZoom);
+    document.getElementById('zoom-close').addEventListener('click',closeImageZoom);
+    zoomDialog.addEventListener('click',event=>{if(event.target===zoomDialog)closeImageZoom();});
+    zoomDialog.addEventListener('cancel',event=>{event.preventDefault();closeImageZoom();});
+    zoomDialog.addEventListener('close',()=>{
+      zoomImage.removeAttribute('src');
+      if(zoomTrigger)zoomTrigger.focus({preventScroll:true});
     });
   </script>
 </body>
