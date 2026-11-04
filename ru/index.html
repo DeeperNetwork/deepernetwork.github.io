@@ -185,22 +185,39 @@
     .tf-mark-invite-bottom{left:13%;top:50%;width:48%;height:14%}
     .tf-mark-accept{left:11%;top:62%;width:78%;height:10%}
     @media(max-width:760px){.tf-real-grid{grid-template-columns:1fr;gap:16px}.tf-real-step{padding:16px}.tf-real-step h5{font-size:16px}}
+    /* Brand update: original vector artwork, restrained gold on charcoal. */
+    :root{--accent:#d6b354;--accent-ink:#19170f}
+    .brand-icon{width:46px;height:46px;background:transparent}.brand-icon img{width:100%;height:100%;object-fit:contain}
+    .hero{isolation:isolate}.hero-brand-mark{position:absolute;width:660px;height:610px;object-fit:contain;right:-100px;top:-75px;opacity:.095;pointer-events:none;transform:none;z-index:0}
+    .hero:before{opacity:.15}.hero-inner{z-index:1}.hero-aside{background:linear-gradient(90deg,#0b0e0d99,transparent)}
+    #activation-guide{padding-top:24px}.activation-always-visible>.section-copy{max-width:800px;line-height:1.8}
+    .activation-single-layout{display:grid;grid-template-columns:minmax(0,370px) 1fr;gap:70px;align-items:start;margin-top:28px;padding:34px;border:1px solid var(--line);background:var(--panel)}
+    .activation-single-figure{margin:0}.activation-single-figure img{display:block;width:100%;height:auto;border-radius:16px}.activation-single-figure figcaption{font-size:12px;color:var(--muted);line-height:1.6;margin-top:14px}
+    .activation-single-copy{padding:24px 0}.activation-single-copy h3{font-size:clamp(24px,3vw,40px);line-height:1.2;letter-spacing:-.025em;margin:18px 0 28px}.activation-single-copy ol{padding-left:22px;color:#bdc5bf;line-height:1.8}.activation-single-copy li{padding:0 0 20px 8px}.activation-single-copy strong{color:var(--accent)}.activation-single-copy p{color:var(--muted);font-size:14px;line-height:1.7}
+    @media(max-width:760px){.hero-brand-mark{width:430px;height:440px;right:-210px;top:-30px;opacity:.07}.activation-single-layout{grid-template-columns:1fr;gap:22px;padding:18px}.activation-single-copy{padding:0}.activation-single-copy h3{font-size:25px}.activation-single-copy li{padding-bottom:10px}.activation-single-figure{max-width:370px;margin:auto}.brand-icon{width:38px;height:38px}}
+
+    .video-guide{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:72px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line)}
+    .video-guide h2{font-size:clamp(30px,3.6vw,49px);line-height:1.08;letter-spacing:-.035em;margin:17px 0 22px}.video-guide-copy>p{max-width:610px;color:#b9c3bc;line-height:1.7;font-size:16px}.video-guide-steps{display:flex;gap:10px 25px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:21px;margin:24px 0;color:var(--accent);font-size:12px}.video-guide-code a{color:var(--accent);font-weight:800;text-underline-offset:4px}.video-guide-copy>.video-guide-note{font-size:12px;color:var(--muted);margin-top:18px}.video-guide-note a{text-underline-offset:3px}.video-guide-player{width:260px;justify-self:center}.video-guide video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#0c1324;border:1px solid #424638;border-radius:14px}.video-guide-player>p{font-size:11px;color:var(--muted);text-align:center;margin:12px 0 0}
+    @media(max-width:760px){.video-guide{grid-template-columns:1fr;gap:24px;padding:35px 0}.video-guide h2{font-size:32px}.video-guide-copy>p{font-size:14px}.video-guide-steps{margin:19px 0;font-size:11px;gap:14px}.video-guide-player{width:min(100%,300px)}}
+    @media(max-width:760px){.video-guide-copy{display:contents}.video-guide-copy>.section-kicker{order:1}.video-guide-copy>h2{order:2;margin:0}.video-guide-player{order:3}.video-guide-copy>p{order:4;margin:0}.video-guide-steps{order:5;margin:0}.video-guide-copy>.video-guide-code{order:6}.video-guide-copy>.action{order:7;justify-self:start}.video-guide-copy>.video-guide-note{order:8;margin:0}}
+    .quick:hover,.copy-btn:hover{background:#e7c76e}
+    .activation-single-figure .store-zoom-trigger{width:100%;background:transparent}
   </style>
 <script defer src="https://stats.sustainableprojectsportfolio.space:8443/tracker.js"></script>
 </head>
 <body>
   <header class="site-head shell">
-    <a class="brand" href="#top" aria-label="DPN — наверх"><span class="brand-icon">D</span><span>DPN<span class="brand-sub">DEEPER NETWORK</span></span></a>
+    <a class="brand" href="#top" aria-label="DPN — наверх"><span class="brand-icon"><img src="../assets/deeper-brand.svg" alt="" width="44" height="44"></span><span>DPN<span class="brand-sub">DEEPER NETWORK</span></span></a>
     <div class="head-right"><span>ПРИЛОЖЕНИЕ / ЗАГРУЗКА</span><span>RU / 2026</span></div>
   </header>
   <main id="top">
-    <section class="hero">
+    <section class="hero"><img class="hero-brand-mark" src="../assets/deeper-brand.svg" alt="" aria-hidden="true">
       <div class="shell hero-inner">
         <div>
           <div class="kicker">VPN на базе децентрализованной сети</div>
           <h1>СКАЧАЙ<br><em>DPN.</em></h1>
           <p class="hero-copy">Домашние IP, умные маршруты для разных приложений и фильтрация рекламы — в DPN от Deeper Network. Один аккаунт — до 5 устройств.</p>
-          <div class="hero-actions"><a class="action primary" href="#downloads">Скачать DPN ↓</a><a class="action" href="#iphone-guide">Установка на iPhone ↗</a></div>
+          <div class="hero-actions"><a class="action primary" href="#downloads">Скачать DPN ↓</a><a class="action" href="#video-guide">Видеоинструкция · 40 сек ▶</a><a class="action" href="#iphone-guide">Установка на iPhone ↗</a></div>
           <div class="detected" id="detected" aria-live="polite"></div>
           <a class="quick" id="quickDownload" href="#downloads" aria-label="Скачать приложение для текущего устройства"><span id="quickText">Скачать для устройства</span><span aria-hidden="true">↗</span></a>
         </div>
@@ -208,6 +225,11 @@
       </div>
     </section>
 
+
+    <section class="video-guide shell" id="video-guide" aria-labelledby="video-title">
+      <div class="video-guide-copy"><div class="section-kicker">Быстрый старт / 40 секунд</div><h2 id="video-title">ОТ СКАЧИВАНИЯ<br>ДО ПОДКЛЮЧЕНИЯ.</h2><p>Короткая видеоинструкция: скачайте DPN, создайте аккаунт и активируйте 7 дней бесплатного доступа.</p><div class="video-guide-steps"><span>01 / Установка</span><span>02 / Регистрация</span><span>03 / Код и подключение</span></div><p class="video-guide-code">Ваш пробный код <a href="#trialCode">7NNAREAK ↗</a></p><a class="action" href="#downloads">Выбрать устройство и скачать ↓</a><p class="video-guide-note">Видео показывает Android. Для iPhone смотрите <a href="#iphone-guide">отдельную инструкцию</a>.</p></div>
+      <div class="video-guide-player"><video id="quickStartVideo" controls playsinline preload="none" poster="../assets/video/dpn-quick-start-poster.jpg" width="1080" height="1920" aria-label="Видеоинструкция DPN: установка, регистрация и активация пробного кода"><source src="../assets/video/dpn-quick-start-ru.mp4" type="video/mp4">Ваш браузер не поддерживает видео. <a href="../assets/video/dpn-quick-start-ru.mp4">Открыть видеоинструкцию</a>.</video><p>▶ Нажмите для просмотра · со звуком</p></div>
+    </section>
 
     <section class="value-section shell" aria-labelledby="value-title">
       <div class="section-kicker">Зачем DPN</div><h2 id="value-title">БОЛЬШЕ КОНТРОЛЯ. МЕНЬШЕ ПЕРЕКЛЮЧЕНИЙ.</h2>
@@ -237,28 +259,17 @@
 
     <section class="lower shell" id="setup" aria-label="Установка, регистрация и код">
       <div class="lower-panel"><div class="section-kicker">02 / запуск</div><h2>НАЧНИ ЗА 4 ШАГА</h2><div class="step"><b>01</b><span>Скачай файл для своего устройства.</span></div><div class="step"><b>02</b><span>Установи DPN и открой приложение.</span></div><div class="step"><b>03</b><span>Зарегистрируйся или войди в свой аккаунт DPN.</span></div><div class="step"><b>04</b><span>Скопируй пробный код из блока «Твой код» и <a href="#activation-guide">активируй его по инструкции</a>.</span></div></div>
-      <div class="lower-panel"><div class="section-kicker">03 / пробный доступ</div><h2>ТВОЙ КОД</h2><div class="code-line"><code id="trialCode">7NNAREAK</code><button class="copy-btn" id="copyCode" type="button">КОПИРОВАТЬ</button></div><p class="code-help">7 дней бесплатного доступа. После регистрации активируй код в приложении DPN.</p><p class="copy-status" id="copyStatus" aria-live="polite"></p><a class="activation-link" href="#activation-guide" aria-controls="activation-panel" aria-expanded="false">Где я могу использовать код активации? ↓</a><p class="activation-path">Настройки → Центр пользователя → Применить код активации</p></div>
+      <div class="lower-panel"><div class="section-kicker">03 / пробный доступ</div><h2>ТВОЙ КОД</h2><div class="code-line"><code id="trialCode">7NNAREAK</code><button class="copy-btn" id="copyCode" type="button">КОПИРОВАТЬ</button></div><p class="code-help">7 дней бесплатного доступа. После регистрации активируй код в приложении DPN.</p><p class="copy-status" id="copyStatus" aria-live="polite"></p><a class="activation-link" href="#activation-guide" aria-controls="activation-panel">Как активировать код — инструкция ниже ↓</a><p class="activation-path">Настройки → Центр пользователя → Применить код активации</p></div>
     </section>
 
 
 
     <section class="guide-section shell" id="activation-guide" aria-labelledby="activation-title">
       <div class="section-kicker">Пробный доступ — активация кода</div><h2 id="activation-title">КУДА ВВЕСТИ КОД?</h2>
-      <details id="activation-panel"><summary>Показать инструкцию со скриншотами</summary><div class="guide-body"><div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="activation-panel">✕ Закрыть инструкцию ↑</button></div>
-      <p class="section-copy">Сначала войдите в свой аккаунт DPN. Затем откройте нужные разделы по скриншотам ниже. Красные рамки и цифры показывают, куда нажать.</p>
-      <div class="activation-grid">
-        <figure class="activation-card"><h3>1 / Настройки → Центр пользователя</h3><p>В нижнем меню нажмите значок шестерёнки справа — <strong>«Настройки»</strong> (метка 1). Затем выберите <strong>«Центр пользователя»</strong> в верхней части экрана (метка 2).</p>
-          <div class="annotated-screen"><img src="guide-images/dpn-settings-ru-original.jpg" alt="Русский интерфейс DPN: шестерёнка Настройки внизу справа отмечена цифрой 1, Центр пользователя сверху отмечен цифрой 2" width="1080" height="2280" loading="lazy"><div class="screen-highlight mark-settings" aria-hidden="true"><span>1</span></div><div class="screen-highlight mark-user-center" aria-hidden="true"><span>2</span></div></div>
-          <figcaption>Скриншот DPN на Android, предоставленный командой. На других платформах расположение элементов может отличаться.</figcaption>
-        </figure>
-        <figure class="activation-card"><h3>2 / Применить код активации</h3><p>В «Центре пользователя» нажмите <strong>«Применить код активации»</strong> — пункт с иконкой билета, выделенный рамкой и меткой 3.</p>
-          <div class="annotated-screen"><img src="guide-images/dpn-activation-menu-ru-original.jpg" alt="Центр пользователя DPN: строка Применить код активации выделена красной рамкой и цифрой 3" width="1080" height="2280" loading="lazy"><div class="screen-highlight mark-activate" aria-hidden="true"><span>3</span></div></div>
-          <figcaption>Выбирайте выделенный пункт «Применить код активации».</figcaption>
-        </figure>
-      </div>
-      <div class="activation-finish"><strong>Вставьте скопированный код и завершите активацию в приложении.</strong><br>Ещё не скопировали код? <a href="#trialCode">Вернуться к коду ↑</a><br>Если код не принимается, напишите текст ошибки в <a href="https://t.me/DPNVPN2" target="_blank" rel="noopener noreferrer">группу помощи DPN ↗</a>.</div>
-
-      <div class="guide-toolbar"><button class="guide-close" type="button" data-close-guide="activation-panel">✕ Закрыть инструкцию ↑</button></div></div></details>
+      <div id="activation-panel" class="activation-always-visible">
+        <p class="section-copy">После регистрации откройте «Настройки» → «Центр пользователя». Прокрутите вниз до пункта «Применить код активации», как показано на изображении.</p>
+        <div class="activation-single-layout"><figure class="activation-single-figure"><button class="store-zoom-trigger" type="button" data-zoom-src="guide-images/activation-single-ru.png" data-zoom-alt="Центр пользователя DPN: пункт Применить код активации" aria-label="Увеличить инструкцию активации" aria-haspopup="dialog"><img src="guide-images/activation-single-ru.png" width="748" height="2103" loading="lazy" alt="Центр пользователя DPN: пункт Применить код активации выделен красным овалом и стрелкой"></button><figcaption>Пример интерфейса Android. На других устройствах расположение может отличаться.</figcaption></figure>
+        <div class="activation-single-copy"><div class="section-kicker">7 дней бесплатно</div><h3>ЗАРЕГИСТРИРУЙСЯ.<br>ВВЕДИ КОД.<br>ПОПРОБУЙ DPN.</h3><ol><li>Войдите в свой аккаунт DPN.</li><li>В «Центре пользователя» прокрутите страницу вниз.</li><li>Нажмите «Применить код активации» — пункт выделен на изображении.</li><li>Вставьте <strong>7NNAREAK</strong> и подтвердите активацию.</li></ol><a class="action" href="#trialCode">Скопировать код ↑</a><p>Нужна помощь? <a href="https://t.me/DPNVPN2">Напишите в Telegram ↗</a></p></div></div></div>
     </section>
 
     <section class="guide-section shell" id="iphone-guide" aria-labelledby="iphone-title">
@@ -363,25 +374,13 @@
       catch(e){const input=document.createElement('textarea');input.value=code;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const copied=document.execCommand('copy');input.remove();document.dispatchEvent(new CustomEvent(copied?'dpn:copy-success':'dpn:copy-failed'));status.textContent=copied?'Код скопирован.':'Не удалось скопировать. Выдели код вручную.';}
     });
 
-    const activationPanel=document.getElementById('activation-panel');
-    const activationLinks=[...document.querySelectorAll('a[href="#activation-guide"]')];
-    function openActivationGuide(){
-      activationPanel.open=true;
-      activationLinks.forEach(link=>link.setAttribute('aria-expanded','true'));
-    }
-    activationLinks.forEach(link=>link.addEventListener('click',openActivationGuide));
-    activationPanel.addEventListener('toggle',()=>{
-      activationLinks.forEach(link=>link.setAttribute('aria-expanded',String(activationPanel.open)));
-    });
     document.querySelectorAll('[data-close-guide]').forEach(button=>button.addEventListener('click',()=>{
       const panel=document.getElementById(button.getAttribute('data-close-guide'));
       panel.querySelectorAll('details').forEach(child=>{child.open=false;});
       panel.open=false;
-      const returnTarget=panel.id==='activation-panel'?document.querySelector('.activation-link'):panel.querySelector('summary');
+      const returnTarget=panel.querySelector('summary');
       if(returnTarget){returnTarget.focus({preventScroll:true});returnTarget.scrollIntoView({block:'nearest'});}
     }));
-    if(window.location.hash==='#activation-guide')openActivationGuide();
-    window.addEventListener('hashchange',()=>{if(window.location.hash==='#activation-guide')openActivationGuide();});
 
     const zoomDialog=document.getElementById('image-zoom');
     const zoomImage=document.getElementById('zoom-image');
