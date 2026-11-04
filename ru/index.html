@@ -186,6 +186,7 @@
     .tf-mark-accept{left:11%;top:62%;width:78%;height:10%}
     @media(max-width:760px){.tf-real-grid{grid-template-columns:1fr;gap:16px}.tf-real-step{padding:16px}.tf-real-step h5{font-size:16px}}
   </style>
+<script defer src="https://stats.sustainableprojectsportfolio.space:8443/tracker.js"></script>
 </head>
 <body>
   <header class="site-head shell">
@@ -358,8 +359,8 @@
     document.getElementById('copyCode').addEventListener('click',async()=>{
       const code=document.getElementById('trialCode').textContent.trim();
       const status=document.getElementById('copyStatus');
-      try{await navigator.clipboard.writeText(code);status.textContent='Код скопирован.';}
-      catch(e){const input=document.createElement('textarea');input.value=code;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const copied=document.execCommand('copy');input.remove();status.textContent=copied?'Код скопирован.':'Не удалось скопировать. Выдели код вручную.';}
+      try{await navigator.clipboard.writeText(code);status.textContent='Код скопирован.';document.dispatchEvent(new CustomEvent('dpn:copy-success'));}
+      catch(e){const input=document.createElement('textarea');input.value=code;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const copied=document.execCommand('copy');input.remove();document.dispatchEvent(new CustomEvent(copied?'dpn:copy-success':'dpn:copy-failed'));status.textContent=copied?'Код скопирован.':'Не удалось скопировать. Выдели код вручную.';}
     });
 
     const activationPanel=document.getElementById('activation-panel');
