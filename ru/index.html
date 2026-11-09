@@ -28,6 +28,9 @@
     h1{font-size:clamp(58px,8.4vw,116px);line-height:.88;letter-spacing:-.07em;text-transform:uppercase;margin:23px 0 24px;max-width:850px;font-weight:900}
     h1 em{font-style:normal;color:var(--accent)}
     .hero-copy{max-width:555px;color:#b9c3bc;font-size:17px;line-height:1.48;margin:0}
+    .hero-benefits{display:grid;gap:7px;margin-top:18px;padding-left:1.15em;font-size:15px}
+    .hero-benefits li::marker{color:var(--accent)}
+    .hero-benefits strong{color:var(--ink)}
     .hero-aside{border-left:2px solid var(--accent);padding:7px 0 8px 19px;color:var(--muted);font-size:13px;line-height:1.6}
     .hero-aside strong{display:block;color:var(--ink);font:700 12px/1.2 Consolas,monospace;letter-spacing:.08em;margin-bottom:12px}
     .detected{display:none;margin-top:28px;color:var(--ink);font:700 12px/1.4 Consolas,monospace;letter-spacing:.04em}
@@ -229,8 +232,13 @@
         <div>
           <div class="kicker">VPN на базе децентрализованной сети</div>
           <h1>СКАЧАЙ<br><em>DPN.</em></h1>
-          <p class="hero-copy">Домашние IP, умные маршруты для разных приложений и фильтрация рекламы — в DPN от Deeper Network. Один аккаунт — до 5 устройств.</p>
           <div class="hero-actions"><a class="action primary" href="#downloads">Скачать DPN ↓</a><a class="action" href="#video-guide">Видеоинструкция · 40 сек ▶</a><a class="action" href="#iphone-guide">Установка на iPhone ↗</a></div>
+          <ul class="hero-copy hero-benefits" aria-label="Преимущества DPN">
+            <li><strong>Невозможно заблокировать</strong><br>Нет центрального сервера.</li>
+            <li><strong>Экономия на подписках</strong><br>Не нужен тариф «без рекламы».</li>
+            <li><strong>Меньше капч</strong><br>Домашние IP-адреса вместо дата-центров.</li>
+            <li><strong>Умный маршрут</strong><br>Местные сервисы — напрямую, зарубежные — через узел.</li>
+          </ul>
           <div class="detected" id="detected" aria-live="polite"></div>
           <a class="quick" id="quickDownload" href="#downloads" aria-label="Скачать приложение для текущего устройства"><span id="quickText">Скачать для устройства</span><span aria-hidden="true">↗</span></a>
         </div>
