@@ -1,0 +1,86 @@
+name: Sync DPN download pages
+
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: dpn-download-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      deploy: ${{ steps.build.outputs.deploy }}
+      english: ${{ steps.build.outputs.english }}
+      russian: ${{ steps.build.outputs.russian }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test platform mappings and page templates
+        run: python3 -m unittest discover -s tests -v
+      - name: Build and check both download pages
+        id: build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          site="$RUNNER_TEMP/site"
+          python3 scripts/build_download_pages.py "$site"
+          english=$(sha256sum "$site/index.html" | cut -d' ' -f1)
+          russian=$(sha256sum "$site/ru/index.html" | cut -d' ' -f1)
+          deploy=true
+          if [[ "$GITHUB_EVENT_NAME" == schedule ]] && bash scripts/check-live-pages.sh "$english" "$russian"; then
+            deploy=false
+            echo 'Both public pages already match this build.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          printf 'deploy=%s\nenglish=%s\nrussian=%s\n' "$deploy" "$english" "$russian" >> "$GITHUB_OUTPUT"
+      - name: Upload the static site
+        if: steps.build.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+      - name: Verify the live English and Russian pages
+        env:
+          EN_SHA: ${{ needs.build.outputs.english }}
+          RU_SHA: ${{ needs.build.outputs.russian }}
+        run: |
+          for attempt in {1..12}; do
+            if bash scripts/check-live-pages.sh "$EN_SHA" "$RU_SHA"; then
+              echo 'Verified both live pages against the deployed artifact.' >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
